@@ -1,5 +1,6 @@
 <h1>Homepage</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<h1>Blog Posts</h1>
 <tbody>
     <% @posts.each do |blog| %>
       <tr>
@@ -8,6 +9,15 @@
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
         <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+</tbody>
+<h1>Blog Posts</h1>
+<tbody>
+    <% @skills.each do |skill| %>
+      <tr>
+        <td><%= skill.title %></td>
+        <td><%= skill.percent_utilized %></td>
       </tr>
     <% end %>
 </tbody>
