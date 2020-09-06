@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_014609) do
 
   create_table "portfolios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
+    t.string "subtitle"
     t.text "body"
     t.text "main_image"
     t.text "thumb_image"
