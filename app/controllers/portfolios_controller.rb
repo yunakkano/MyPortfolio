@@ -10,6 +10,7 @@ class PortfoliosController < ApplicationController
 
     def new
         @portfolio_item = Portfolio.new
+        3.times{ @portfolio_item.technologies.build }
     end
 
     def create
@@ -57,6 +58,6 @@ class PortfoliosController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def portfolio_item_params
-      params.require(:portfolio).permit(:title, :subtitle, :body, :main_image, :thumb_image)
+        params.require(:portfolio).permit(:title, :subtitle, :body, :main_image, :thumb_image, technologies_attributes: [:name])
     end
 end
