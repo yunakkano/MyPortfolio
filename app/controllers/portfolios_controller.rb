@@ -1,11 +1,16 @@
 class PortfoliosController < ApplicationController
     before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
     def index
-        @portfolio_items = Portfolio.all
+        @portfolio_items = Portfolio.all # Portfolio.ruby_on_rails_portfolio_items 
+    end
+
+    def react
+        @react_portfolio_items = Portfolio.react
     end
 
     def new
         @portfolio_item = Portfolio.new
+        3.times{ @portfolio_item.technologies.build }
     end
 
     def create
@@ -53,6 +58,6 @@ class PortfoliosController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def portfolio_item_params
-      params.require(:portfolio).permit(:title, :subtitle, :body, :main_image, :thumb_image)
+        params.require(:portfolio).permit(:title, :subtitle, :body, :main_image, :thumb_image, technologies_attributes: [:name])
     end
 end
